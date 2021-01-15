@@ -1,0 +1,19 @@
+﻿passwordForUser "JHalpert"
+
+
+function resourceFolder
+	return suiteInfo().path & "/Resources/"
+end resourceFolder
+
+on passwordForUser targetUsername
+	put resourceFolder() & "passwords.xlsx" into filepath
+	put {type: "excel", file: filepath} into credentials
+	put the lowercase of targetUsername into lowerUsername
+	put the record of credentials where username is lowerUsername into account
+	
+	if account is NOT empty
+		log property password of account
+	else
+		logError "Username not found:" && targetUsername
+	end if
+end passwordForUser
