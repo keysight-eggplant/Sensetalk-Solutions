@@ -5,6 +5,7 @@ This project is meant to provide a variety of automation solutions to common or 
 1. [Validating Background Colors & Relative Position](/background-colors.suite)
 1. [Validating Text Within a Table Inside an Image](/table-image-validation.suite)
 1. [Selecting Correct Image from Multiple Matches](/multiple-matches.suite)
+1. [Fetch Specific Value from Row in Spreadsheet](/spreadsheet-search.suite)
 
 ---
 
