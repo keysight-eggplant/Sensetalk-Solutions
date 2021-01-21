@@ -1,6 +1,6 @@
 ﻿passwordForUser "JHalpert"
 
-
+// Returns the embedded Resource folder inside the suite
 function resourceFolder
 	return suiteInfo().path & "/Resources/"
 end resourceFolder
