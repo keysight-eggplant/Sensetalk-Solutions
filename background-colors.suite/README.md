@@ -3,7 +3,7 @@
 #### Automation Requirement(s)
 - validate background color and proper vertical order of the following labels within the voting chart:
     - `#EFDFE7` Voting Certificates
-    - `#E6CBD7` Wards
+    - `#E7CBD6` Wards
     - `#FFFFFF` Self
     - `#D6D7D6` Total Votable Shares
 
