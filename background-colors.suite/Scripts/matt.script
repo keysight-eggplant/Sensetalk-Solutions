@@ -1,0 +1,54 @@
+﻿put resourcesFolder() & "screenshot.png" into screenshotPath
+connect name: screenshotPath, type: "screenshot"
+
+put empty into previousLabelLocation
+put ["Voting Certificates", "Wards", "Self", "Total Votable Shares"] into labels
+
+repeat for each item labelText in labels
+	if labelText is ...
+		"Voting Certificates": put "headline" into sectionType
+		"Wards": put "columnHeader" into sectionType
+		"Self": put "row0" into sectionType
+		"Total Votable Shares": put "row1" into sectionType
+	end if
+	
+	put sectionColor(sectionType) into expectedBackgroundColor
+	assert that labelBackgroundColor(labelText) is equal to expectedBackgroundColor
+	
+	put imageLocation(text: labelText, caseSensitive: true) into currentLabelLocation
+	if previousLabelLocation is NOT empty
+		assert that currentLabelLocation.y is greater than previousLabelLocation.y
+	end if
+	put currentLabelLocation into previousLabelLocation
+end repeat
+
+
+--------------------------------------------------
+
+
+// Returns the filepath for the suite's Resources/ directory.
+function resourcesFolder
+	return suiteInfo().path & "/Resources/"
+end resourcesFolder
+
+
+// Returns expected color key for defined table sections.
+function sectionColor sectionKey
+	set sections to {
+		headline: "#EFDFE7",
+		columnHeader: "#E7CBD6",
+		row0: "#FFFFFF",
+		row1: "#D6D7D6",
+	}
+	
+	return sections.(sectionKey)
+end sectionColor
+
+
+// Returns the hexidecimal value for the background color at a label's location, offset slightly to the left by five (5) pixels.
+function labelBackgroundColor labelText
+	set the colorFormat to HTML
+	put imageRectangle(text: labelText, caseSensitive: true) into labelRect
+	put [labelRect.left - 5, foundImageInfo().imageLocation.y] into labelOffset
+	return colorAtLocation(labelOffset)
+end labelBackgroundColor
