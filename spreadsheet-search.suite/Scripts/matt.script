@@ -4,16 +4,10 @@
 --------------------------------------------------
 
 
-// Returns the filepath for the suite's Resources/ directory.
-function resourcesFolder
-	return suiteInfo().path & "/Resources/"
-end resourcesFolder
-
-
 // Returns the password for the target username.
 // If the username is not found, will log an error with appropriate message.
 on passwordForUser targetUsername
-	put resourceFolder() & "passwords.xlsx" into filepath
+	put resourcePath("passwords.xlsx") into filepath
 	put {type: "excel", file: filepath} into credentials
 	put the lowercase of targetUsername into lowerUsername
 	put the record of credentials where username is lowerUsername into account
