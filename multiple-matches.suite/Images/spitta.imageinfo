@@ -1,0 +1,20 @@
+﻿{
+    CaptureDate = "2021-07-19 20:14:19 +0000";
+    CaptureHost = "screenshot.png \U2013 /Users/jospitta/Downloads/sensetalk-solutions/multiple-matches.suite/Resources";
+    CaptureScreenSize =     (
+        2206,
+        1756
+    );
+    HasAlpha = 1;
+    HotSpotX = 15;
+    HotSpotY = 7;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 862;
+    OriginalLocationY = 550;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    tags =     (
+    );
+}

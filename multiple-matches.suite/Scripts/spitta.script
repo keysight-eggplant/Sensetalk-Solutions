@@ -1,0 +1,9 @@
+﻿
+
+Put EveryImageLocation("spitta") into FoundImages
+
+// Use the next to line to find the one you want. Then you can comment it out if you like.
+// log EveryImageLocation("spitta")
+
+Click item 4 of FoundImages
+
