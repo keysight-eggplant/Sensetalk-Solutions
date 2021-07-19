@@ -1,0 +1,14 @@
+﻿
+
+
+getAccountPassword "mpalmer"
+
+to getAccountPassword username
+	set myExcelDB to {type: "excel", file: ResourcePath("passwords.xlsx")}
+	set Credentials to the records of myExcelDB
+	put each item of Credentials where each contains username into selectedRecord
+	log password of selectedRecord
+end getAccountPassword
+
+
+
