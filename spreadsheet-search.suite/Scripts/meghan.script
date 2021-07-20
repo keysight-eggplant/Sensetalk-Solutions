@@ -1,7 +1,4 @@
-﻿
-
-
-getAccountPassword "mpalmer"
+﻿getAccountPassword "JHalpert"
 
 to getAccountPassword username
 	set myExcelDB to {type: "excel", file: ResourcePath("passwords.xlsx")}
