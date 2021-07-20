@@ -1,0 +1,34 @@
+﻿//You know like an actual comment that tell you what the script is about.
+set the colorFormat to HTML
+
+put {
+	"Voting Certificates":"#EFDFE7", 
+	"Wards":"#E7CBD6",
+	Self:"#FFFFFF",
+	"Total Votable Shares":"#D6D7D6"
+} into bgColor
+put (562,208,881,368) into SearchArea
+
+
+
+
+// Can make into a function that takes in bgColor and SearchArea
+put the number of keys of bgColor into bgCount
+put keys(bgColor) into bgKeys
+repeat bgCount times
+	put item repeatindex() of bgKeys into SingleBGKey
+	if imagefound(text:SingleBGKey) then
+		put FoundImageInfo().ImageRectangle into FiiR
+		put rightCenter(FiiR) +(40,0) into OffRightPoint
+		put ColorAtLocation(OffRightPoint) into CaLPoint
+		if CaLPoint = bgColor.(SingleBGKey)
+			LogSuccess	"Found:"&& SingleBGKey && "with Color" && CaLPoint && "Using Point" && OffRightPoint
+		else
+			logwarning "Didn't Find it"
+		end if
+	else
+		Logwarning "Unable to Find Text" && SingleBGKey
+	end if
+end repeat
+// End of possible Function
+
