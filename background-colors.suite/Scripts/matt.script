@@ -1,4 +1,4 @@
-﻿put resourcesFolder() & "screenshot.png" into screenshotPath
+﻿put resourcePath("screenshot.png") into screenshotPath
 connect name: screenshotPath, type: "screenshot"
 
 put empty into previousLabelLocation
@@ -24,12 +24,6 @@ end repeat
 
 
 --------------------------------------------------
-
-
-// Returns the filepath for the suite's Resources/ directory.
-function resourcesFolder
-	return suiteInfo().path & "/Resources/"
-end resourcesFolder
 
 
 // Returns expected color key for defined table sections.
