@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2021-07-21 17:45:58 +0000";
+    CaptureHost = "screenshot.png – /Users/jdonnell/Documents/Eggplant_Suites/sensetalk-solutions-master/table-image-validation.suite/Resources";
+    CaptureScreenSize = (
+        1456,
+        1000);
+    HasAlpha = 0;
+    HotSpotX = 10;
+    HotSpotY = 11;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 489;
+    OriginalLocationY = 179;
+    Precise = 1;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "BottomRight2";
+    tags = ();
+}
