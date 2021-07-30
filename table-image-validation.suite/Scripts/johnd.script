@@ -1,0 +1,22 @@
+﻿Connect name:ResourcePath("screenshot.png"), type:"screenshot"
+
+
+Set TL to ImageLocation("johnd/TopLeft.png")
+Set BR to ImageLocation("johnd/BottomRight")
+Set TextToFind to "Hearing Exam"
+set CoPay to "$0 copay"
+
+set the searchrectangle to [TL, BR]
+Repeat until Validated equals True
+	if imagefound(text:TextToFind)
+		put readtext(TL+[478,0], BR+[478,0]) into InNetworkCost
+		assert that InNetworkCost equals CoPay
+		set Validated to True
+	else 
+		set TL to TL+[0,90]
+		Set BR to BR+[0,90]
+		set the searchrectangle to [TL, BR]
+	end if
+End Repeat
+
+set the searchrectangle to []
