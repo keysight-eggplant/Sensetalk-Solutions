@@ -1,0 +1,25 @@
+﻿{
+    CaptureDate = "2020-12-01 23:06:47 +0000";
+    CaptureHost = "Table_PlanDetail.png \U2013 /Users/anne/Downloads";
+    CaptureScreenSize =     (
+        710,
+        873
+    );
+    HasAlpha = 0;
+    HotSpotX = 8;
+    HotSpotY = 17;
+    IgnoreColor =     (
+        "#FFFFFF"
+    );
+    ImageDescription = {length = 0, bytes = 0x};
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 383;
+    OriginalLocationY = 321;
+    Precise = 1;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = verticalDivider;
+    tags =     (
+    );
+}
