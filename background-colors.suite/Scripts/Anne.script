@@ -1,0 +1,28 @@
+﻿put resourcePath("screenshot.png") into screenshotPath
+connect name: screenshotPath, type: "screenshot"
+
+put [{Color:"#EFDFE7",Text:"Voting Certificates"},{Color:"#E7CBD6",Text:"Wards"},{Color:"#FFFFFF",Text:"Self"},{Color:"#D6D7D6",Text:"Total Votable Shares"}] into backgroundColors
+
+
+put [0,0] into previousLocation
+
+repeat for each item field in backgroundColors
+	put imagelocation(text:field.text) into currentLocation
+	assert currentLocation.y > previousLocation.y with (Field.text && "is below previous entry")
+	assert validateColors (field.text, field.color) with (field.text && "Has the correct background color")
+end repeat
+
+
+to validateColors with text, backgroundColor, colorformat: "HTML"
+	set originalColorFormat to GetOption(colorformat) 
+	set the colorformat to colorformat
+	
+	if ColorAtLocation(Imagelocation(text:text, hotspot:[-2, -2])) = backgroundColor
+		set the colorformat to originalColorFormat
+		return true
+	else
+		set the colorformat to originalColorFormat
+		return false
+	end if
+	
+end validateColors
