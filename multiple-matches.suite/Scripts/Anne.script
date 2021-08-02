@@ -1,0 +1,31 @@
+﻿Connect name:ResourcePath("screenshot.png"), type:"screenshot"
+
+clickSpecific "MoreBtn", "EXTR"
+
+to handle clickSpecific with button, lable, areatoSearch: "left", offset: 300
+
+	//Adjust where to look for the lable
+	if areatoSearch is ...
+		... "left":
+			set offsetSquare to [-offset,-5,5,5]
+		... "right":
+			set offsetSquare to [offset,-5,5,5]
+		... Else
+			throw "Parameter error", areatoSearch && "is not a recognized spacial relationship."
+	end if
+	
+	//Search for the image and look for the lable
+	Repeat with each item currentImage of everyimagerectangle(image:button)
+		
+		//Find the lable
+		if imagefound(text:lable, searchrectangle: currentImage+offsetSquare)
+			
+			click currentImage.center
+			return
+		end if
+	End repeat
+	
+	//If unable to find the image, throw error
+	Throw "Unable to find correct image", "Eggpant was unable to find" && button && "With lable" && lable && areatosearch && "of the image"
+	
+end clickSpecific
