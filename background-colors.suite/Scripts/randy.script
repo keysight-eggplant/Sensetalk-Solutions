@@ -1,5 +1,4 @@
-﻿//You know like an actual comment that tell you what the script is about
-connect (name: resourcePath("screenshot.png"))
+﻿connect (name: resourcePath("screenshot.png"), type: screenshot)
 set the colorFormat to HTML
 
 put {
@@ -31,5 +30,4 @@ repeat bgCount times
 		Logwarning "Unable to Find Text" && SingleBGKey
 	end if
 end repeat
-// End of possible Function
 
