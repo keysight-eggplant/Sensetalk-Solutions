@@ -1,10 +1,10 @@
 ﻿Connect name:ResourcePath("screenshot.png"), type:"screenshot"
 
-put imagerectangle("Anne/INNETWORK") into inNetworkColumn
-put ImageRectangle("Anne/OUTOFNETWORK") into outNetworkColumn
-put imagelocation("Anne/Box Top Corner") into topoftable
+put imagerectangle("anne/INNETWORK") into inNetworkColumn
+put ImageRectangle("anne/OUTOFNETWORK") into outNetworkColumn
+put imagelocation("anne/Box Top Corner") into topoftable
 
-put everyimagelocation(image:"Anne/LineDivider", SearchRectangle:[topoftable.x, topoftable.y, (topoftable.x+imageinfo("Anne/LineDivider").ImageSize.x), the remoteScreenSize.y])  into linelist //need to be very precise with the length of the search rectangle to be the exact width of the linedivider
+put everyimagelocation(image:"anne/LineDivider", SearchRectangle:[topoftable.x, topoftable.y, (topoftable.x+imageinfo("anne/LineDivider").ImageSize.x), the remoteScreenSize.y])  into linelist //need to be very precise with the length of the search rectangle to be the exact width of the linedivider
 log linelist
 
 put 1 into index
@@ -16,7 +16,7 @@ repeat the number of items in linelist - 1 times
 	
 	log "Category" && readtext([topoftable.x, topline.y, inNetworkColumn.left, bottomline.y])
 	
-	if imagefound(image:"Anne/verticalDivider", searchrectangle:[inNetworkColumn.left, topline.y, outNetworkColumn.right, bottomline.y]) //columns exisit
+	if imagefound(image:"anne/verticalDivider", searchrectangle:[inNetworkColumn.left, topline.y, outNetworkColumn.right, bottomline.y]) //columns exisit
 		log "In Network " && readtext([inNetworkColumn.left, topline.y, inNetworkColumn.right, bottomline.y])
 		log "Out of Network " && readtext([outNetworkColumn.left, topline.y, outNetworkColumn.right, bottomline.y])
 	else

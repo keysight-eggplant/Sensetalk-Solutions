@@ -1,6 +1,6 @@
 ﻿Connect name:ResourcePath("screenshot.png"), type:"screenshot"
 
-clickSpecific "MoreBtn", "EXTR"
+clickSpecific "anne/MoreBtn", "EXTR"
 
 to handle clickSpecific with button, lable, areatoSearch: "left", offset: 300
 
