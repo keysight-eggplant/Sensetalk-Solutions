@@ -1,0 +1,17 @@
+﻿getPassword "JHalpert"
+
+to getPassword username
+	set excelPass to {type: "excel", file: ResourcePath("passwords.xlsx"), table:("Scranton")}
+
+	put each item of the records of excelPass where each."username" equals username into myuser
+	
+	if myuser = ""
+		logerror "unable to find password for" && username
+	end if
+	
+	log myuser."password"
+	
+end getPassword
+
+
+
