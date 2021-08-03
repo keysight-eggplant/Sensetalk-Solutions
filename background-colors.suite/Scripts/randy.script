@@ -1,0 +1,33 @@
+﻿connect (name: resourcePath("screenshot.png"), type: screenshot)
+set the colorFormat to HTML
+
+put {
+	(name:"Voting Certificates",color:"#EFDFE7"), 
+	(name:"Wards",color:"#E7CBD6"),
+	(name:"Self",color:"#FFFFFF"),
+	(name:"Total Votable Shares",color:"#D6D7D6")
+} into bgColor
+put (562,208,881,368) into SearchArea
+
+
+// Can make into a function that takes in bgColor and SearchArea
+put topleft(SearchArea) into PreviousPoint
+put number of items of bgColor into bgCount
+repeat bgCount times
+	put item repeatindex() of bgColor into BgInfo
+	
+	if imagefound(text:BgInfo.name) then
+		put FoundImageInfo().ImageRectangle into FiiR
+		put rightCenter(FiiR) +(40,0) into OffRightPoint
+		put ColorAtLocation(OffRightPoint) into CaLPoint
+		if CaLPoint = BgInfo."color" and if (item 2 of OffRightPoint) > (item 2 of PreviousPoint)
+			LogSuccess	"Found:"&& SingleBGKey && "with Color" && CaLPoint && "Using Point" && OffRightPoint
+			put OffRightPoint into PreviousPoint
+		else
+			logwarning "Didn't Find it"
+		end if
+	else
+		Logwarning "Unable to Find Text" && SingleBGKey
+	end if
+end repeat
+

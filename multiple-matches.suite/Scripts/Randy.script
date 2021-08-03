@@ -1,0 +1,19 @@
+﻿//You know like an actual comment that tell you what the script is about
+connect name: (resourcePath("screenshot.png")), type: "screenshot"
+
+
+
+
+
+
+put EveryImageRectangle("RandyTripleDots") into EID
+put the number of items of EID into EIDCount
+
+
+repeat EIDCount times
+	put item repeatindex() of EID into SID
+	put SID +(-200,-10,-50,5) into ReadLabelArea
+	log readtext(ReadLabelArea)
+	wait 2
+	
+end repeat
