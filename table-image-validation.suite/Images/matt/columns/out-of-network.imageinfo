@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2021-08-23 23:27:10 +0000";
+    CaptureHost = "screenshot.png – /Users/mattbrow/Projects/sensetalk-solutions/table-image-validation.suite/Resources";
+    CaptureScreenSize = (
+        1456,
+        1000);
+    HasAlpha = 1;
+    HotSpotX = 229;
+    HotSpotY = 41;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 965;
+    OriginalLocationY = 32;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "matt/columns/out-of-network";
+    tags = ();
+}
