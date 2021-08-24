@@ -1,0 +1,86 @@
+﻿put resourcePath("screenshot.png") into screenshotPath
+connect {name: screenshotPath, type: "screenshot"}
+
+put "$0 copay" into expectedCellText
+put inNetworkCellText("hearing_exam") into actualCellText
+assert that actualCellText equals expectedCellText
+
+
+--------------------------------------------------
+
+
+// Returns text inside target cell under the 'In-Network' column
+function inNetworkCellText rowTitleKey
+	return singleColumnCellText("in-network", rowTitleKey)
+end inNetworkCellText
+
+
+// Returns text inside target cell under the 'Out-of-Network' column
+function outOfNetworkCellText rowTitleKey
+	return singleColumnCellText("out-of-network", rowTitleKey)
+end outOfNetworkCellText
+
+
+// Returns the rectangle for the target row
+function rowRectangle rowTitleKey
+	put rowTitle(rowTitleKey) into targetRowTitle
+	
+	// account for vertical offset of the bottom of the row
+	if rowTitleKey is ...
+		"annual_physical" : put 10 into rowHeightOffset
+		"eye_exam"        : put 10 into rowHeightOffset
+		"foot_care"       : put 10 into rowHeightOffset
+		"hearing_exam"    : put 10 into rowHeightOffset
+		"hearing_aids"    : put 80 into rowHeightOffset
+		"transportation"  : put 100 into rowHeightOffset
+		
+		else
+			throw "UNKNOWN_ROW_TITLE", "Unknown row title key provided:" && rowTitleKey
+	end if
+	
+	// prepare search metrics for specific row; restrict row title search area
+	put {text: rowTitle(rowTitleKey), caseSensitive: true} into rowTitleSearchMetrics
+	put imageRectangle("matt/columns/in-network") into columnRect
+	put columnRect.left into rightAnchor
+	put [[0,0], [rightAnchor, remoteScreenSize().height]] into rowTitleSearchRect
+	put rowTitleSearchRect into rowTitleSearchMetrics.searchRectangle
+	
+	// modify raw rectangle around text to include vertical offset
+	put imageRectangle(rowTitleSearchMetrics) into rawTitleRect
+	put rawTitleRect.topLeft + [0, -10] into modifiedTopLeftAnchor
+	put rawTitleRect.bottomRight + [0, rowHeightOffset] into modifiedBottomRightAnchor
+	put [modifiedTopLeftAnchor, modifiedBottomRightAnchor] into modifiedTitleRect
+	return modifiedTitleRect
+end rowRectangle
+
+
+// Returns the exact text string for the provided key
+function rowTitle localizationKey
+	set the duplicatePropertyKeyMode to error
+	set the strictProperties to true
+	
+	set rowTitles to {
+		annual_physical: "Annual Routine Physical",
+		eye_exam: "Eye Exam",
+		foot_care: "Foot Care - Routine",
+		hearing_exam: "Hearing Exam",
+		hearing_aids: "Hearing Aids",
+		transportation: "Transportation",
+	}
+	
+	return rowTitles.(localizationKey)
+end rowTitle
+
+
+// Returns text inside cell at intersection of target column and row
+function singleColumnCellText column, rowTitleKey
+	assert that column is "in-network" OR column is "out-of-network"
+	put imageRectangle("matt/columns/" & column) into columnRect
+	put rowRectangle(rowTitleKey) into rowRect
+	
+	put [columnRect.left, rowRect.top] into topLeftAnchor
+	put [columnRect.right, rowRect.bottom] into bottomRightAnchor
+	put [topLeftAnchor, bottomRightAnchor] into cellRect
+
+	return readText(cellRect)
+end singleColumnCellText
