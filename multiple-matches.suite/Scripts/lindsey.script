@@ -1,0 +1,30 @@
+﻿
+dealWithField "EXTR", "2 Bearing"
+
+
+to dealWithField fieldTitle, sectionTitle, bufferSide: 55, offset: 55
+	set bufferVertical to 5
+	// find the Bearing section
+	put ImageRectangle(text:sectionTitle, IgnoreSpaces:"Yes", PreferredWords:sectionTitle) into sectionRec
+	
+	// start searching for the field in the section
+	set the SearchRectangle to [[sectionRec.left-20, sectionRec.bottom], the RemoteScreenSize]
+
+	// Find the field's title
+	put ImageRectangle(text: fieldTitle, caseSensitive:"Yes") into titleRec
+	
+	// get and log the field's value
+	// use the left of the title rectangle because the right location will vary with the length of the field's title
+	put ReadText([titleRec.left+offset,titleRec.top-bufferVertical], [titleRec.left+offset+bufferSide,titleRec.bottom+bufferVertical]) into fieldValue
+	log fieldValue
+	
+	// make the search area even smaller using the title of the field
+	// add buffer to not cut out the field we found
+	set the SearchRectangle to [[titleRec.left+bufferSide,titleRec.top-bufferVertical], [titleRec.left+bufferSide*4,titleRec.bottom+bufferVertical]]
+	
+	// click the ... button next to it, if there is one
+	if ImageFound("btn_dots") then Click "btn_dots"
+	
+	// reset the search area to the full screen
+	set the SearchRectangle to []
+end dealWithField
