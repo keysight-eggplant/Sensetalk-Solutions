@@ -5,7 +5,7 @@ dealWithField "EXTR", "2 Bearing"
 to dealWithField fieldTitle, sectionTitle, bufferSide: 55, offset: 55
 	set bufferVertical to 5
 	// find the Bearing section
-	put ImageRectangle(text:sectionTitle, IgnoreSpaces:"Yes", PreferredWords:sectionTitle) into sectionRec
+	put ImageRectangle(text:sectionTitle, IgnoreSpaces:"Yes") into sectionRec
 	
 	// start searching for the field in the section
 	set the SearchRectangle to [[sectionRec.left-20, sectionRec.bottom], the RemoteScreenSize]
