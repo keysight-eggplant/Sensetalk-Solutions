@@ -1,14 +1,26 @@
 ﻿
-dealWithField "EXTR", "2 Bearing"
+Connect name:ResourcePath("screenshot.png"), type:"screenshot"
+
+dealWithField "EXTR", "Bearing"
+dealWithField "Length", "Mark", 120, 135
+dealWithField "SHL", "Seat", 105, 55
 
 
-to dealWithField fieldTitle, sectionTitle, bufferSide: 55, offset: 55
-	set bufferVertical to 5
-	// find the Bearing section
-	put ImageRectangle(text:sectionTitle, IgnoreSpaces:"Yes") into sectionRec
+to dealWithField fieldTitle, sectionTitle, bufferSide: 110, offset: 105
+	set bufferVertical to 12
+	set rightBuffer to 40
+	
+	// find the Basic Data tab
+	put ImageRectangle(text:"Basic Data", caseSensitive:"Yes") into basicDataRec
+	
+	// start searching for the section in the tab
+	set the SearchRectangle to [[basicDataRec.left-rightBuffer, basicDataRec.bottom], the RemoteScreenSize]
+
+	// find the section
+	put ImageRectangle(text:sectionTitle, IgnoreSpaces:"Yes", caseSensitive:"Yes") into sectionRec
 	
 	// start searching for the field in the section
-	set the SearchRectangle to [[sectionRec.left-20, sectionRec.bottom], the RemoteScreenSize]
+	set the SearchRectangle to [[sectionRec.left-rightBuffer, sectionRec.bottom], the RemoteScreenSize]
 
 	// Find the field's title
 	put ImageRectangle(text: fieldTitle, caseSensitive:"Yes") into titleRec
@@ -20,10 +32,10 @@ to dealWithField fieldTitle, sectionTitle, bufferSide: 55, offset: 55
 	
 	// make the search area even smaller using the title of the field
 	// add buffer to not cut out the field we found
-	set the SearchRectangle to [[titleRec.left+bufferSide,titleRec.top-bufferVertical], [titleRec.left+bufferSide*4,titleRec.bottom+bufferVertical]]
+	set the SearchRectangle to [[titleRec.right,titleRec.top-bufferVertical], [titleRec.right+bufferSide*7,titleRec.bottom+bufferVertical]]
 	
 	// click the ... button next to it, if there is one
-	if ImageFound("btn_dots") then Click "btn_dots"
+	if ImageFound("lindsey/btn_dots") then Click FoundImageLocation()
 	
 	// reset the search area to the full screen
 	set the SearchRectangle to []
