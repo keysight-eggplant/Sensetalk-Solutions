@@ -1,4 +1,4 @@
-> A couple of guys from work--Ryan and Dwayne (I think)--recently asked me for their manager's password. I told them no, but I don't like anyone here and I couldn't care less. So I figured I could give them a script that searches the database for a matching username and tells them the account's password.
+> A couple of guys from work--Ryan and Dwayne (I think)--recently asked me for their manager's password. I told them no, but I don't like anyone here and I couldn't care less. So I figured I could give them a script that searches the database for a matching username and returns the account's password.
 
 #### Automation Requirement(s)
 - create a handler that does the following:
