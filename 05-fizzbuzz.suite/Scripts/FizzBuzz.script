@@ -1,0 +1,28 @@
+﻿Repeat 100 times
+	set myNumber = RepeatIndex()
+	
+	//The multi-case statement below doesn't work
+If myNumber ...
+... is divisible by 15 then
+Set myFB_Solution to "FizzBuzz"
+... is divisible by 5 then
+Set myFB_Solution to "Buzz"
+... is divisible by 3 then
+Set myFB_Solution to "Fizz"
+Else
+Set myFB_Solution to myNumber
+End If
+
+
+If myNumber is divisible by 15 then
+	Set myFB_Solution to "FizzBuzz"
+Else If myNumber is divisible by 5 then
+	Set myFB_Solution to "Buzz"
+Else If myNumber is divisible by 3 then
+	Set myFB_Solution to "Fizz"
+Else
+	Set myFB_Solution to myNumber
+End If
+
+Log "The current number is:" && RepeatIndex() && "It's FizzBuzz solution is" && myFB_Solution
+End Repeat
