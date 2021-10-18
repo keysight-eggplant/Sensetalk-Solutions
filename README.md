@@ -2,10 +2,11 @@
 This project is meant to provide a variety of automation solutions to common or interesting scenarios. Eggplant users are permitted and encouraged to use the methods provided within their own projects.
 
 #### Automation Challenges
-1. [Validating Background Colors & Relative Position](/background-colors.suite)
-1. [Validating Text Within a Table Inside an Image](/table-image-validation.suite)
-1. [Selecting Correct Image from Multiple Matches](/multiple-matches.suite)
-1. [Fetch Specific Value from Row in Spreadsheet](/spreadsheet-search.suite)
+1. [Validating Background Colors & Relative Position](/01-background-colors.suite)
+1. [Validating Text Within a Table Inside an Image](/02-table-image-validation.suite)
+1. [Selecting Correct Image from Multiple Matches](/03-multiple-matches.suite)
+1. [Fetch Specific Value from Row in Spreadsheet](/04-spreadsheet-search.suite)
+1. [Classic FizzBuzz](/05-fizzbuzz.suite)
 
 ---
 
