@@ -7,8 +7,6 @@
   - if the number is a multiple of `5`, print the string `Buzz` instead of the number
   - if the number is a multiple of **both** `3` _and_ `5`, print the string `FizzBuzz` instead of the number
 
-<a href="https://explosm.net/comics/3286/" target="_blank" rel="noopener noreferrer"><img width="705" height="605" src="https://user-images.githubusercontent.com/4438390/137740340-8b2715c9-3482-44af-9089-4ee5c76404fc.png"></a>
-
 #### Notes
 
 ---
