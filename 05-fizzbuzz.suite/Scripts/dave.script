@@ -1,49 +1,21 @@
-﻿Repeat 100 times
-	set myNumber = RepeatIndex()
-	
-	
-	If ...
-		... (myNumber/15) is an integer then Set myFB_Solution to "FizzBuzz"
-		... (myNumber/5) is an integer then Set myFB_Solution to "Buzz"
-		... (myNumber/3) is an integer then Set myFB_Solution to "Fizz"
+﻿
+Command_FizzBuzz
+
+on Command_FizzBuzz
+	Repeat 100 times
+		set myNumber = RepeatIndex()
 		
-		Else
-			Set myFB_Solution to myNumber
-	End If
-	
-	
-	//The multi-case statements below doesn't work
-	
-	(*	If myNumber ...
-		... is a multiple of 15 then Set myFB_Solution to "FizzBuzz"
-		... is a multiple of 5 then Set myFB_Solution to "Buzz"
-		... is a multiple of 3 then Set myFB_Solution to "Fizz"
+		If ...
+			... (myNumber/15) is an integer then Set myFB_Solution to "FizzBuzz"
+			... (myNumber/5) is an integer then Set myFB_Solution to "Buzz"
+			... (myNumber/3) is an integer then Set myFB_Solution to "Fizz"
+			
+			Else
+				Set myFB_Solution to myNumber
+		End If
 		
-		Else
-			Set myFB_Solution to myNumber
-	End If*)
-	
-	(*	If myNumber ...
-		... is 15 then
-			Set myFB_Solution to "FizzBuzz"
-		... is 5 then
-			Set myFB_Solution to "Buzz"
-		... is 3 then
-			Set myFB_Solution to "Fizz"
-		Else
-			Set myFB_Solution to myNumber
-	End If*)
-	
-	//The multi-case statement below works but it offends my aesthetic sensibilities
-	(*	If myNumber is divisible by 15 then
-		Set myFB_Solution to "FizzBuzz"
-	Else If myNumber is divisible by 5 then
-		Set myFB_Solution to "Buzz"
-	Else If myNumber is divisible by 3 then
-		Set myFB_Solution to "Fizz"
-	Else
-		Set myFB_Solution to myNumber
-	End If*)
-	
-	Log "The current number is:" && RepeatIndex() && "It's FizzBuzz solution is" && myFB_Solution
-End Repeat
+		Log  myFB_Solution
+	End Repeat
+end Command_FizzBuzz
+
+
