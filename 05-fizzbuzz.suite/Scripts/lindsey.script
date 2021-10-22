@@ -1,0 +1,22 @@
+﻿(*	a command handler that does the following: 
+	print each number starting from 1 through to 100 on a new line
+	if the number is a multiple of 3, print the string Fizz instead of the number
+	if the number is a multiple of 5, print the string Buzz instead of the number
+	if the number is a multiple of both 3 and 5, print the string FizzBuzz instead of the number *)
+
+numberFizzBuzz
+	
+on numberFizzBuzz
+	repeat 100 times
+		put RepeatIndex() into index
+		put index is a multiple of 3 into isMultipleOfThree
+		put index is a multiple of 5 into isMultipleOfFive
+		
+		if ...
+			... isMultipleOfThree and isMultipleOfFive then log "FizzBuzz"
+			... isMultipleOfThree then log "Fizz"
+			... isMultipleOfFive then log "Buzz"
+			... else log index
+		end if
+	end repeat
+end numberFizzBuzz	
