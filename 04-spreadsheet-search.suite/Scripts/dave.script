@@ -1,0 +1,15 @@
+﻿
+Log LocatePassword("passwords.xlsx","JHalpert")
+
+Function LocatePassword myExcelFile, myUserName
+	//Establish connection string to Excel
+	set myConnectionString to {type:"excel", file:ResourcePath(myExcelFile), objectType: database, writable: Yes}
+	Set myTargetRecord to the Record of myConnectionString where UserName equals the lowercase of myUserName -- addresses instances in which the user input is in upper or mixed case notation
+	set theValue to myTargetRecord.Password
+	if the number of keys of myTargetRecord = 0 then Set theValue to "Error! That UserName is not in the database." -- If no record has a value of myUserName in the UserName column, the number of keys of that record will be 0
+	
+	Return theValue	
+	
+End LocatePassword
+
+
