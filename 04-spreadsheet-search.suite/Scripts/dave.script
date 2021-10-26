@@ -1,5 +1,4 @@
-﻿
-Log LocatePassword("passwords.xlsx","JHalpert")
+﻿Log LocatePassword("passwords.xlsx","JHalpert")
 
 Function LocatePassword myExcelFile, myUserName
 	//Establish connection string to Excel
@@ -8,8 +7,5 @@ Function LocatePassword myExcelFile, myUserName
 	set theValue to myTargetRecord.Password
 	if the number of keys of myTargetRecord = 0 then Set theValue to "Error! That UserName is not in the database." -- If no record has a value of myUserName in the UserName column, the number of keys of that record will be 0
 	
-	Return theValue	
-	
+	Return theValue
 End LocatePassword
-
-
