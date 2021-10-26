@@ -1,5 +1,4 @@
-﻿
-Command_FizzBuzz
+﻿Command_FizzBuzz
 
 on Command_FizzBuzz
 	Repeat 100 times
