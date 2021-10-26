@@ -1,0 +1,20 @@
+﻿Command_FizzBuzz
+
+on Command_FizzBuzz
+	Repeat 100 times
+		set myNumber = RepeatIndex()
+		
+		If ...
+			... (myNumber/15) is an integer then Set myFB_Solution to "FizzBuzz"
+			... (myNumber/5) is an integer then Set myFB_Solution to "Buzz"
+			... (myNumber/3) is an integer then Set myFB_Solution to "Fizz"
+			
+			Else
+				Set myFB_Solution to myNumber
+		End If
+		
+		Log  myFB_Solution
+	End Repeat
+end Command_FizzBuzz
+
+
