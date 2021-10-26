@@ -6,7 +6,7 @@ This project is meant to provide a variety of automation solutions to common or 
 1. [Validating Text Within a Table Inside an Image](/02-table-image-validation.suite)
 1. [Selecting Correct Image from Multiple Matches](/03-multiple-matches.suite)
 1. [Fetch Specific Value from Row in Spreadsheet](/04-spreadsheet-search.suite)
-1. [Classic FizzBuzz](/05-fizzbuzz.suite)
+1. [Classic FizzBuzz Interview Question](/05-fizzbuzz.suite)
 
 ---
 
