@@ -1,0 +1,23 @@
+﻿fizzBuzzForAllOneHundredNumbers
+
+--------------------------------------------------
+
+// Loops through the process 100 times, logging return value for each iteration.
+on fizzBuzzForAllOneHundredNumbers
+	repeat 100 times
+		put the counter into n
+		log fizzBuzz(n)
+	end repeat
+end fizzBuzzForAllOneHundredNumbers
+
+// Returns the appropriate response for a defined number
+function fizzBuzz num
+	if num is a multiple of 3
+		if num is a multiple of 5 then return "FizzBuzz"
+		else return "Fizz"
+	else if num is a multiple of 5
+		return "Buzz"
+	else
+		return num
+	end if
+end fizzBuzz
