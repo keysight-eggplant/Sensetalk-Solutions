@@ -6,6 +6,7 @@
     - searches the enclosed spreadsheet
     - logs the matching password to the console
 - if no match is found, it should log an appropriate error message
+- specifically test against Jim Halpert's account
 - don't tell Jim
 
 <img src="https://user-images.githubusercontent.com/4438390/104669593-5675fe80-56a8-11eb-89c0-c22844a40eb0.gif">
