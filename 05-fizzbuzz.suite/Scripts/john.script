@@ -1,0 +1,31 @@
+﻿My_FizzBuzz
+
+on My_FizzBuzz
+	Repeat 100 times
+		set myNumber = RepeatIndex()
+		
+		If ...
+			... myNumber is a multiple of 5 and myNumber is a multiple of 3 then Set myLogStatment to "FizzBuzz"
+			... myNumber is a multiple of 3 then Set myLogStatment to "Fizz"
+			... myNumber is a multiple of 5 then Set myLogStatment to "Buzz"
+			
+			Else
+				Set myLogStatment to myNumber
+		End If
+		
+		Log  myLogStatment
+		
+	End Repeat
+end My_FizzBuzz
+
+
+
+
+
+
+
+
+
+
+
+
