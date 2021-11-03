@@ -1,0 +1,26 @@
+{
+  "originalcapturelocation" : [
+    860,
+    548,
+    36,
+    18
+  ],
+  "createddate" : 1626725422.8686609,
+  "lastmodifieddate" : 1626725422.8686619,
+  "name" : "spitta",
+  "testlocationdata" : [
+    {
+      "capturerect" : [
+        860,
+        548,
+        36,
+        18
+      ],
+      "connectiontype" : "Screenshot",
+      "connectionserverid" : "\/Users\/jospitta\/Downloads\/sensetalk-solutions\/multiple-matches.suite\/Resources\/screenshot.png",
+      "name" : "spitta.png",
+      "type" : 1,
+      "connectionname" : "screenshot.png"
+    }
+  ]
+}
