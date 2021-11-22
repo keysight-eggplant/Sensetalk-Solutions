@@ -1,0 +1,29 @@
+﻿//You know like an actual comment that tell you what the script is about
+connect name: (resourcePath("screenshot.png")), type: "screenshot"
+
+
+clickBox "EXTR"
+
+on ClickBox LabelName
+
+
+	put EveryImageRectangle("randy/TripleDots") into EID
+	put the number of items of EID into EIDCount
+	
+	repeat EIDCount times
+		put item repeatindex() of EID into SID
+		put SID +(-250,-15,-50,10) into ReadLabelArea
+		//log readtext(ReadLabelArea)
+		if ImageFound(2, text:LabelName,SearchRectangle:ReadLabelArea)
+			log "Found it at:" && FoundImageLocation()
+			click FoundImageLocation()
+			exit repeat
+		else
+			log "Still Looking"
+			add 1 to Counter
+		end if
+	end repeat
+	
+	if Counter = EIDCount then logerror "Unable to Find it"
+	
+end ClickBox
