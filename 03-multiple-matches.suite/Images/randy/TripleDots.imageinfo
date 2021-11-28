@@ -1,0 +1,23 @@
+﻿{
+    CaptureDate = "2021-11-22 18:07:02 +0000";
+    CaptureHost = "screenshot.png – /Users/randallhesse/Projects/sensetalk-solutions/03-multiple-matches.suite/Resources";
+    CaptureScreenSize = (
+        "2206",
+        "1756");
+    CropRectangle = "7,5,59,42";
+    HasAlpha = 1;
+    HotSpotX = 34;
+    HotSpotY = 24;
+    ImageDescription = ;
+    ImageTolerance = 80;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    MaxIgnoredPixels = 8;
+    OriginalLocationX = 545;
+    OriginalLocationY = 535;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "randy/RandyTripleDots";
+    tags = ();
+}
