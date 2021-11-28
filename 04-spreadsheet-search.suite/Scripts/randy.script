@@ -1,0 +1,21 @@
+﻿log GetPassword("JHalpert" )
+
+function GetPassword username
+	put (type:"excel", file:ResourcePath("passwords.xlsx"), name:"Scranton",writable: "NO") into ExcelData
+	put the records of ExcelData into UserInfo
+	put the number of items of UserInfo into UserCount
+	repeat UserCount Times
+		put item repeatindex() of UserInfo into SingleUserInfo
+		if SingleUserInfo."username" = username then
+			return SingleUserInfo."password"
+		else
+			add 1 to counter
+		end if
+	end repeat
+	
+	if Counter = UserCount then
+		//logwarning "Unable to Find Password" //If you wanted some Color
+		return  "Unable to Find Password"
+	end if
+	
+end GetPassword
