@@ -1,12 +1,8 @@
-﻿//You know like an actual comment that tell you what the script is about
-connect name: (resourcePath("screenshot.png")), type: "screenshot"
-
+﻿connect name: (resourcePath("screenshot.png")), type: "screenshot"
 
 clickBox "EXTR"
 
 on ClickBox LabelName
-
-
 	put EveryImageRectangle("randy/TripleDots") into EID
 	put the number of items of EID into EIDCount
 	
