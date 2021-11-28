@@ -1,5 +1,4 @@
-﻿log GetPassword("JHalpert1" )
-
+﻿log GetPassword("JHalpert" )
 
 function GetPassword username
 	put (type:"excel", file:ResourcePath("passwords.xlsx"), name:"Scranton",writable: "NO") into ExcelData
