@@ -1,0 +1,19 @@
+﻿FizzBuzz (100)
+
+//Loop Howmany Times
+on FizzBuzz Howmany
+	repeat Howmany times
+		put repeatindex() into currentindex
+		//Does the Logic
+		If ...
+			...currentindex mod 3 = 0  and if currentindex mod 5 = 0 :
+				log "FizzBuzz"
+			...currentindex mod 3 = 0 :
+				log "Fizz"
+			... currentindex mod 5 = 0  :
+				log "Buzz"
+			... Else
+				log currentindex
+		End if
+	end repeat
+end FizzBuzz
