@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1666972274.6399999,
+	"lastfoundlocation": [
+		28,
+		953,
+		21,
+		22
+	],
+	"originalcapturelocation": [
+		20,
+		953,
+		29,
+		30
+	],
+	"createddate": 1666972130.793,
+	"lastfounddate": 1666991440.911,
+	"testlocationdata": [
+		{
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[14,15]",
+					"Tolerance": "_1",
+					"Discrepancy": "_0",
+					"SearchType": "Precise to Pixel"
+				},
+				"sutinfo": {
+					"Type": "Testplant Screen Image"
+				},
+				"name": "dave/TableBL.png",
+				"connectionname": "screenshot.png",
+				"type": 1,
+				"connectionserverid": "C:/ScriptRepositories/Sensetalk-Solutions/02-table-image-validation.suite/Resources/screenshot.png",
+				"capturerect": [
+					20,
+					953,
+					29,
+					30
+				],
+				"connectiontype": "Screenshot",
+				"capturedocrtext": "L"
+			}
+	],
+	"name": "dave/TableBL2"
+}
