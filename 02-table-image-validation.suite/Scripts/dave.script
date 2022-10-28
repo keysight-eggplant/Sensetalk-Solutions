@@ -1,0 +1,79 @@
+﻿//calculate tighly bounded table coordinates
+set myBL_SearchArea to (0,top of ImageRectangle("dave/TableBR"),left of ImageRectangle("dave/TableBR"),bottom of ImageRectangle("dave/TableBR"))
+put ImageLocation(image:"dave/TableBL",SearchRectangle:myBL_SearchArea) into myBL_Hotspot
+put ImageLocation("dave/TableUR")  into myUR_Hotspot
+put ImageLocation("dave/TableBR")  into myBR_Hotspot
+put item 1 of myBL_Hotspot into ULx
+put item 2 of myUR_Hotspot into ULy
+put item 1 of myBR_Hotspot into BRx
+put item 2 of myBR_Hotspot into BRy
+put ReadTable(ULx,ULy,BRx,BRy) into myTableData
+
+//initialize select variables: counter and empty lists
+set i = 1
+put [] into myRowHeaders
+put [] into myColumnHeaders
+
+//normalize data in myTableData
+replace every occurrence of newline in myTableData with space -- resolves issues of ReadTable introducing newline characters
+
+repeat with each item CurrentRow of myTableData by reference
+	
+	Put the number of items of CurrentRow into myRowItemCount
+	Log "The original number of items in the Current Row is" && myRowItemCount
+	
+	If item 2 of CurrentRow is empty then
+		
+		Delete item (repeatindex()) of myTableData -- deletes empty rows as all valid rows will have a value for column 2
+		Next Repeat
+		
+		//ReadTable will insert values for merged cells into the first available column; this duplicates the value into the next column
+		
+	else if item 3 of CurrentRow is empty then
+		
+		Log "This is a merged cell."
+		insert item 2 of CurrentRow after item 2 of CurrentRow
+		
+	End If
+	
+	//Creates list of row headers from item 1 of each row
+	insert item 1 of CurrentRow after item i of myRowHeaders
+	set i = i + 1
+	
+end repeat
+
+put each item of item 1 of myTableData into myColumnHeaders
+delete item 1 of myRowHeaders -- insert command above will create an additional item that needs to be deleted
+
+Answer "In- or Out-of-Network" with "Out-of-Network" or "In-Network" title "Network Choice" -- creates answer buttons
+Put IT into myNetworkSelection
+
+Answer "Which benefit?" from list ("Annual Routine Physical", "Eye Exam", "Routine Dental", "Foot Care - Routine", "Hearing Exam", "Hearing Aids", "Transportation", "Personal Emergency Response System (PERS)") -- creates answer list
+Put IT into myBenefitSelection
+
+Repeat with each item CurrentColumn of myColumnHeaders
+	
+	If CurrentColumn contains myNetworkSelection then
+		
+		put RepeatIndex() into myColumnIndex
+		Exit Repeat
+		
+	End If
+	
+End repeat
+
+
+Repeat with each item CurrentRow of myRowHeaders
+	
+	If CurrentRow contains myBenefitSelection then
+		
+		put RepeatIndex() into myRowIndex
+		Exit Repeat
+		
+	End If
+	
+End repeat
+
+put item myColumnIndex of item myRowIndex of myTableData into myCalculatedBenefit
+
+Log "The calculated benefit of " && myNetworkSelection && myBenefitSelection && "is" && myCalculatedBenefit
