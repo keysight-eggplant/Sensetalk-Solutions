@@ -1,4 +1,7 @@
-﻿//calculate tighly bounded table coordinates
+﻿put resourcePath("screenshot.png") into screenshotPath
+connect {name: screenshotPath, type: "screenshot"}
+
+//calculate tighly bounded table coordinates
 set myBL_SearchArea to (0,top of ImageRectangle("dave/TableBR"),left of ImageRectangle("dave/TableBR"),bottom of ImageRectangle("dave/TableBR"))
 put ImageLocation(image:"dave/TableBL",SearchRectangle:myBL_SearchArea) into myBL_Hotspot
 put ImageLocation("dave/TableUR")  into myUR_Hotspot
