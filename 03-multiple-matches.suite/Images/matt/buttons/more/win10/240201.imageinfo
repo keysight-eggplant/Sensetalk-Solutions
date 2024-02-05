@@ -1,0 +1,22 @@
+﻿{
+    CaptureDate = "2024-02-01 16:04:32 +0000";
+    CaptureHost = "screenshot.png – /Users/mattbrow/Projects/Sensetalk-Solutions/03-multiple-matches.suite/Resources";
+    CaptureScreenSize = (
+        "2206",
+        "1756");
+    CropRectangle = "7,6,53,40";
+    HasAlpha = 1;
+    HotSpotX = 31;
+    HotSpotY = 24;
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 547;
+    OriginalLocationY = 533;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchAlgorithm = "TextSmoothSquare";
+    SearchObjectName = "optum/buttons/more/win10/240201";
+    tags = ();
+}

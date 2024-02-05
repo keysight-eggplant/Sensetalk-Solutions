@@ -1,0 +1,60 @@
+﻿put resourcePath("screenshot.png") into screenshotPath
+connect name: screenshotPath, type: "screenshot"
+
+log moreButtonLocationForLabel("BCXL")
+
+
+-----------------------------------
+
+// Returns location for 'More' button corresponding to target label
+function moreButtonLocationForLabel labelText
+	put rectangleForLabel(labelText) into labelRect
+	return imageLocation(image: "matt/buttons/more", searchRectangle: labelRect)
+end moreButtonLocationForLabel
+
+
+// Returns a rectangle to the RIGHT of the target label for the purposes of locating the 'More' button
+function rectangleForLabel labelText
+	assert that possibleLabels() contains labelText
+	
+	if labelText is ...
+		"EXTR": put 235 into horizontalOffset
+		"EXTL": put 235 into horizontalOffset
+		"BCXL": put 800 into horizontalOffset
+		"BCXR": put 800 into horizontalOffset
+		else:
+			put 350 into horizontalOffset
+	end if
+	
+	put sectionRect() into sectionRect
+	put imageRectangle(text: labelText, caseSensitive: true, searchRectangle: sectionRect) into labelRect
+	put [labelRect.right, labelRect.top - 15] into topLeftAnchor
+	put [labelRect.right + horizontalOffset, labelRect.bottom + 10] into botRightAnchor
+	return [topLeftAnchor, botRightAnchor]
+end rectangleForLabel
+
+
+// Returns a rectangle for the various sections on-screen containing the labels
+function sectionRect
+	put remoteScreenSize() into rss
+	put [rss.width * 0.1, rss.height * 0.08] into topLeftAnchor
+	put [rss.width * 0.93, rss.height * 0.85] into botRightAnchor
+	return [topLeftAnchor, botRightAnchor]
+end sectionRect
+
+
+// Returns a list of all possible labels that correspond with a 'More' button
+function possibleLabels
+	return [
+		"BHL",
+		"BHR",
+		"BCXL",
+		"BCXR",
+		"EXTL",
+		"EXTR",
+		"THL",
+		"THR",
+		"SHL",
+		"SHR",
+	]
+end possibleLabels
